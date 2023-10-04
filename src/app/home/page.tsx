@@ -16,12 +16,14 @@ export default async function Home() {
     redirect(ROUTES.login)
   }
 
-  const { data: posts } = await supabase.from('posts').select()
+  const { data: posts } = await supabase
+    .from('posts')
+    .select('id, content, created_at, users(id, name, user_name, avatar_url)')
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <AuthButtonServer />
-      {JSON.stringify(posts, null, 10)}
+      <pre>{JSON.stringify(posts, null, 2)}</pre>
     </main>
   )
 }

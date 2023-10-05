@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "supabase:types": "npx supabase gen types typescript --project-id twuphcrtaakailtslpjs > ./src/types/database.ts"
   },
   "dependencies": {
     "next": "13.5.4",

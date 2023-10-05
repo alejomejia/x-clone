@@ -21,9 +21,9 @@ export function PostCardHeader({ name, username, createdAt }: Props) {
           @{username} · {timeAgo}
         </span>
       </div>
-      <button className="text-gray-500">
+      <div className="text-gray-500">
         <IconButton icon="dots" onClick={() => console.log('dots')} />
-      </button>
+      </div>
     </div>
   )
 }

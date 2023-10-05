@@ -2,13 +2,14 @@ import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 
+import { PostList } from '@/components/PostList/PostList'
 import { AuthButtonServer } from '@/components/AuthButton/AuthButtonServer'
-import { PostCard } from '@/components/PostCard/PostCard'
 import { ROUTES } from '@/consts/routes'
-import { Post } from '@/types/supabase.db'
+import { Database } from '@/types/database'
+import { Post } from '@/types/posts'
 
 export default async function Home() {
-  const supabase = createServerComponentClient({ cookies })
+  const supabase = createServerComponentClient<Database>({ cookies })
 
   const {
     data: { session }
@@ -20,28 +21,14 @@ export default async function Home() {
 
   const { data: posts } = await supabase
     .from('posts')
-    .select('id, content, created_at, users(id, name, user_name, avatar_url)')
+    .select('*, user: users(name, user_name, avatar_url)')
     .order('created_at', { ascending: false })
     .returns<Post[]>()
 
   return (
-    <main>
-      {posts?.map((post) => {
-        const { id, content, created_at: createdAt, users } = post
-        const { name, user_name: username, avatar_url: avatarUrl } = users
-
-        return (
-          <PostCard
-            key={id}
-            content={content}
-            name={name}
-            username={username}
-            avatarUrl={avatarUrl}
-            createdAt={createdAt}
-          />
-        )
-      })}
+    <div>
+      <PostList posts={posts} />
       <AuthButtonServer />
-    </main>
+    </div>
   )
 }

@@ -26,9 +26,13 @@ export default async function Home() {
     .returns<Post[]>()
 
   return (
-    <div>
-      <PostList posts={posts} />
-      <AuthButtonServer />
+    <div className="flex gap-8">
+      <section className="min-h-screen w-[600px] border-l border-r border-gray-800">
+        <PostList posts={posts} />
+      </section>
+      <section className="min-h-screen w-[350px]">
+        <AuthButtonServer />
+      </section>
     </div>
   )
 }

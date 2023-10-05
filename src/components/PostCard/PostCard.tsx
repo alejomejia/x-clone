@@ -20,7 +20,7 @@ export function PostCard({ content, name, username, avatarUrl, createdAt }: Prop
   const avatarAlt = `${name}'s avatar}`
 
   return (
-    <article className="px-4 py-3 max-w-xl border-b border-b-gray-800">
+    <article className="px-4 py-3 w-full border-b border-b-gray-800">
       <div className="flex gap-3">
         <picture>
           <img className="w-10 h-10 rounded-full overflow-hidden" src={avatarUrl} alt={avatarAlt} />

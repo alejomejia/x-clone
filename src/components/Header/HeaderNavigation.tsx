@@ -9,9 +9,12 @@ import {
   UserIcon,
   XLogoIcon
 } from '@/components/Icons/Icons'
+import cx from 'classnames'
+
 import { ROUTES } from '@/consts/routes'
 
 import { HeaderNavigationItem } from './HeaderNavigationItem'
+import { TRANSITION } from '@/consts/classNames'
 
 const menuItems = [
   {
@@ -70,7 +73,10 @@ export function HeaderNavigation() {
         ))}
       </ul>
       <a
-        className="block w-11/12 p-3 rounded-full text-center font-semibold text-lg bg-sky-500 hover:bg-sky-600 transition-color duration-300"
+        className={cx(
+          'block w-11/12 p-3 rounded-full text-center font-semibold text-lg bg-sky-500 hover:bg-sky-600',
+          TRANSITION
+        )}
         href="/compose/tweet"
       >
         Post

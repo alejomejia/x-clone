@@ -2,6 +2,8 @@ import '../globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
+import { Header } from '@/components/Header/Header'
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -14,7 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={inter.className}>
         <div className="w-full flex justify-center">
-          <header className="min-h-screen w-[275px] flex justify-end px-2">header</header>
+          <Header />
           <main>{children}</main>
         </div>
       </body>

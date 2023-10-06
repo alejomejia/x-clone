@@ -1,14 +1,6 @@
-import {
-  DotsIcon,
-  CommentsIcon,
-  RepostIcon,
-  LikeIcon,
-  LikeOutlineIcon,
-  BarsIcon,
-  ShareIcon
-} from '@/components/Icons/Icons'
+import { DotsIcon, CommentsIcon, RepostIcon, LikeIcon, BarsIcon, ShareIcon } from '@/components/Icons/Icons'
 
-const icons = ['dots', 'comments', 'repost', 'like', 'likeOutline', 'bars', 'share'] as const
+const icons = ['dots', 'comments', 'repost', 'like', 'bars', 'share'] as const
 
 const mapIcons = {
   dots: {
@@ -27,10 +19,6 @@ const mapIcons = {
     Icon: LikeIcon,
     color: 'hover:text-pink-500'
   },
-  likeOutline: {
-    Icon: LikeOutlineIcon,
-    color: 'hover:text-pink-500'
-  },
   bars: {
     Icon: BarsIcon,
     color: 'hover:text-sky-500'
@@ -44,10 +32,11 @@ const mapIcons = {
 interface Props {
   icon: (typeof icons)[number]
   suffix?: string
+  variant?: 'fill' | 'outline'
   onClick: () => void
 }
 
-export function IconButton({ icon, suffix, onClick }: Props) {
+export function IconButton({ icon, suffix, variant, onClick }: Props) {
   const Icon = mapIcons[icon].Icon
   const hoverColor = mapIcons[icon].color
 
@@ -56,7 +45,7 @@ export function IconButton({ icon, suffix, onClick }: Props) {
       className={`p-2 flex items-center gap-2 rounded-full transition duration-300 hover:bg-slate-900 ${hoverColor}`}
       onClick={onClick}
     >
-      <Icon className="w-4 h-4" />
+      <Icon className="w-4 h-4" variant={variant} />
       {suffix && <span className="text-xs">123</span>}
     </button>
   )

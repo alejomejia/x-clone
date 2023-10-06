@@ -1,3 +1,8 @@
+'use client'
+
+import { usePathname } from 'next/navigation'
+import cx from 'classnames'
+
 interface Props {
   label: string
   href: string
@@ -5,6 +10,9 @@ interface Props {
 }
 
 export function HeaderNavigationItem({ label, href, icon }: Props) {
+  const pathname = usePathname()
+  const isActive = pathname === href
+
   return (
     <li>
       <a
@@ -12,7 +20,14 @@ export function HeaderNavigationItem({ label, href, icon }: Props) {
         href={href}
       >
         {icon}
-        <span className="block mx-4 text-xl font-normal">{label}</span>
+        <span
+          className={cx('block mx-4 text-xl', {
+            'font-normal': !isActive,
+            'font-bold': isActive
+          })}
+        >
+          {label}
+        </span>
       </a>
     </li>
   )

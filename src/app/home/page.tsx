@@ -4,9 +4,10 @@ import { redirect } from 'next/navigation'
 
 import { PostList } from '@/components/PostList/PostList'
 import { AuthButtonServer } from '@/components/AuthButton/AuthButtonServer'
+import { ComposePost } from '@/components/ComposePost/ComposePost'
 import { ROUTES } from '@/consts/routes'
-import { Database } from '@/types/database'
 import { Post } from '@/types/posts'
+import { Database } from '@/types/database'
 
 export default async function Home() {
   const supabase = createServerComponentClient<Database>({ cookies })
@@ -28,6 +29,7 @@ export default async function Home() {
   return (
     <div className="flex gap-8">
       <section className="min-h-screen w-[600px] border-l border-r border-gray-800">
+        <ComposePost />
         <PostList posts={posts} />
       </section>
       <section className="min-h-screen w-[350px]">

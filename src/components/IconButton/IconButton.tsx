@@ -49,7 +49,7 @@ export function IconButton({ icon, suffix, variant, onClick }: Props) {
       onClick={onClick}
     >
       <Icon className="w-4 h-4" variant={variant} />
-      {suffix && <span className="text-xs">123</span>}
+      {suffix && <span className="text-xs">{suffix}</span>}
     </button>
   )
 }

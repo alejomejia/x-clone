@@ -1,8 +1,6 @@
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
-import { cookies } from 'next/headers'
-
-import { Database } from '@/types/database'
 import { User } from '@/types/posts'
+import { getSession } from '@/supabase/getSession'
+import { createServerComponentClient } from '@/supabase/createServerComponentClient'
 
 import { HeaderBottomUser } from './HeaderBottomUser'
 
@@ -11,12 +9,8 @@ import { HeaderBottomUser } from './HeaderBottomUser'
  */
 
 export async function HeaderBottom() {
-  const supabase = createServerComponentClient<Database>({ cookies })
-
-  const {
-    data: { session }
-  } = await supabase.auth.getSession()
-
+  const supabase = createServerComponentClient()
+  const session = await getSession()
   const userId = session?.user.id
 
   if (!userId) return null

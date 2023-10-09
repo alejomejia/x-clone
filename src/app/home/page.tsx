@@ -1,5 +1,3 @@
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
-import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 
 import { PostList } from '@/components/PostList/PostList'
@@ -7,14 +5,12 @@ import { AuthButtonServer } from '@/components/AuthButton/AuthButtonServer'
 import { ComposePost } from '@/components/ComposePost/ComposePost'
 import { ROUTES } from '@/consts/routes'
 import { Post } from '@/types/posts'
-import { Database } from '@/types/database'
+import { createServerComponentClient } from '@/supabase/createServerComponentClient'
+import { getSession } from '@/supabase/getSession'
 
 export default async function Home() {
-  const supabase = createServerComponentClient<Database>({ cookies })
-
-  const {
-    data: { session }
-  } = await supabase.auth.getSession()
+  const supabase = createServerComponentClient()
+  const session = await getSession()
 
   if (session === null) {
     redirect(ROUTES.login)

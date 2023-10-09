@@ -1,16 +1,11 @@
-import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 
 import { AuthButtonServer } from '@/components/AuthButton/AuthButtonServer'
 import { ROUTES } from '@/consts/routes'
+import { getSession } from '@/supabase/getSession'
 
 export default async function Login() {
-  const { auth } = createServerComponentClient({ cookies })
-
-  const {
-    data: { session }
-  } = await auth.getSession()
+  const session = await getSession()
 
   if (session !== null) {
     redirect(ROUTES.home)

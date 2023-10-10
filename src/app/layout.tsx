@@ -16,7 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={inter.className}>
         <div className="min-h-screen flex flex-col">
-          <main className="h-full flex-1">{children}</main>
+          <main className="flex flex-1">{children}</main>
           <LoginFooterNav />
         </div>
       </body>

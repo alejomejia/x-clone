@@ -1,7 +1,4 @@
-import cx from 'classnames'
-
 import { DotsIcon, CommentsIcon, RepostIcon, LikeIcon, BarsIcon, ShareIcon } from '@/components/Icons/Icons'
-import { TRANSITION } from '@/consts/classNames'
 
 const icons = ['dots', 'comments', 'repost', 'like', 'bars', 'share'] as const
 
@@ -45,7 +42,7 @@ export function IconButton({ icon, suffix, variant, onClick }: Props) {
 
   return (
     <button
-      className={cx('p-2 flex items-center gap-2 rounded-full hover:bg-slate-900', hoverColor, TRANSITION)}
+      className={`p-2 flex items-center gap-2 rounded-full hover:bg-slate-900 ${hoverColor} transition duration-300`}
       onClick={onClick}
     >
       <Icon className="w-4 h-4" variant={variant} />

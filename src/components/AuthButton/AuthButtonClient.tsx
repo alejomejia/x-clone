@@ -2,10 +2,8 @@
 
 import { useRouter } from 'next/navigation'
 import { Session, createClientComponentClient } from '@supabase/auth-helpers-nextjs'
-import cx from 'classnames'
 
 import { GithubIcon } from '@/components/Icons/Icons'
-import { TRANSITION } from '@/consts/classNames'
 
 interface Props {
   session: Session | null
@@ -33,10 +31,7 @@ export function AuthButtonClient({ session }: Props) {
     <div className="flex gap-8">
       {session === null ? (
         <button
-          className={cx(
-            'text-white bg-[#24292F] font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center hover:bg-[#24292F]/80',
-            TRANSITION
-          )}
+          className="text-white bg-slate-900 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center transition-all duration-300 hover:bg-slate-800 "
           onClick={handleSignIn}
         >
           <GithubIcon />

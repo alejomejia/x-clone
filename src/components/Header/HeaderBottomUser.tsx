@@ -1,10 +1,7 @@
 'use client'
 
-import cx from 'classnames'
-
 import { DotsIcon } from '@/components/Icons/Icons'
 import { Avatar } from '@/components/Avatar/Avatar'
-import { TRANSITION } from '@/consts/classNames'
 
 interface Props {
   name: string | undefined
@@ -19,7 +16,7 @@ export function HeaderBottomUser({ name, userName, avatarUrl }: Props) {
 
   return (
     <button
-      className={cx('flex items-center p-3 rounded-full hover:bg-slate-600/25', TRANSITION)}
+      className="flex items-center p-3 rounded-full hover:bg-slate-600/25 transition duration-300"
       onClick={handleClick}
     >
       <Avatar username={userName} avatarUrl={avatarUrl} />

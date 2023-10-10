@@ -31,7 +31,7 @@ export function AuthButtonClient({ session }: Props) {
     <div className="flex gap-8">
       {session === null ? (
         <button
-          className="text-white bg-slate-900 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center transition-all duration-300 hover:bg-slate-800 "
+          className="text-black bg-gray-50 min-w-[250px] font-medium rounded-full text-sm p-2.5 inline-flex items-center justify-center transition-all duration-300 hover:bg-gray-300"
           onClick={handleSignIn}
         >
           <GithubIcon />

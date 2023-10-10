@@ -17,7 +17,9 @@ export default async function Login() {
       <div className="flex-1 grid place-items-center ">
         <XLogoIcon className="w-80 h-80" />
       </div>
-      <div className="flex flex-1 items-center">
+      <div className="flex flex-col flex-1 justify-center">
+        <h1 className="max-w-xl font-bold text-6xl mb-10">What is happening right now</h1>
+        <h2 className="mb-12 text-4xl font-bold">Join today</h2>
         <AuthButtonServer />
       </div>
     </div>

@@ -12,9 +12,14 @@ export default async function Login() {
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1>Inicia sesión</h1>
-      <AuthButtonServer />
-    </main>
+    <div>
+      <div className="grid grid-cols-2">
+        <div>1</div>
+        <div>
+          <AuthButtonServer />
+        </div>
+      </div>
+      <div>3</div>
+    </div>
   )
 }

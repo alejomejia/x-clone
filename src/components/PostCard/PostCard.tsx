@@ -22,7 +22,7 @@ export function PostCard({ content, name, username, avatarUrl, createdAt }: Prop
   const avatarAlt = `${name}'s avatar`
 
   return (
-    <article className="px-4 py-3 w-full border-b border-b-gray-800">
+    <article className="p-4 w-full border-b border-b-gray-800">
       <div className="flex gap-3">
         <Avatar username={username} avatarUrl={avatarUrl} />
         <div className="flex-1">
